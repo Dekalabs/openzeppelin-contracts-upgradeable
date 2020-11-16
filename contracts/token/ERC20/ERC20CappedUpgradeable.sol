@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.0;
+pragma solidity ^0.7.0;
 
 import "./ERC20Upgradeable.sol";
 import "../../proxy/Initializable.sol";
@@ -9,6 +9,8 @@ import "../../proxy/Initializable.sol";
  * @dev Extension of {ERC20} that adds a cap to the supply of tokens.
  */
 abstract contract ERC20CappedUpgradeable is Initializable, ERC20Upgradeable {
+    using SafeMathUpgradeable for uint256;
+    
     uint256 private _cap;
 
     /**
